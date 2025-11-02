@@ -34,5 +34,23 @@ describe("Album Catalog - Basic Checks", () => {
         cy.get('[data-cy="search-input"]').should("be.visible");
     });
 
-    // add at least 3 more tests here
+    it("footer is visible", () => {
+        cy.visit("/");
+
+        cy.get('[data-cy="footer"]').should("be.visible");
+    });
+
+    it("card has detail button", () => {
+        cy.visit("/");
+
+        cy.get('[data-cy="detail-button"]').should("be.visible");
+    });
+
+    it("at least one album card displays the correct author name", () => {
+        cy.visit("/");
+
+        cy.get('[data-cy="album-card"]')
+            .first()
+            .should("contain.text", "Author");
+    });
 });

@@ -27,6 +27,7 @@ export function NavBar() {
                     placeholder="Search"
                     className="input input-bordered w-24 md:w-auto"
                     value={searchInput}
+                    data-cy="search-input"
                     onChange={(e) => {
                         setSearchInput(e.target.value);
                     }}
@@ -36,7 +37,7 @@ export function NavBar() {
                         pathname: "/search",
                         query: searchLinkQuery,
                     }}
-                    data-cy="search-input"
+                    data-cy="search-button"
                     className="btn btn-ghost text-xl"
                 >
                     Search

@@ -57,6 +57,7 @@ export default async function Home() {
                                     <Link
                                         className="btn btn-primary btn-block"
                                         href={`/album/${album.id}`}
+                                        data-cy="detail-button"
                                     >
                                         Detail
                                     </Link>
@@ -66,7 +67,10 @@ export default async function Home() {
                     ))}
                 </div>
             </main>
-            <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+            <footer
+                className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center"
+                data-cy="footer"
+            >
                 <p>Footer</p>
             </footer>
         </div>
