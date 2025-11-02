@@ -54,7 +54,8 @@ describe("Album Catalog - Interactions", () => {
     });
 
     it("can search from search page", () => {
-        cy.visit("/search");
+        cy.visit("/");
+        cy.get('[data-cy="search-button"]').click();
 
         const searchValue = "x";
 
