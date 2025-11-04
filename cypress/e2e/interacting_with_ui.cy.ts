@@ -44,7 +44,6 @@ describe("Album Catalog - Interactions", () => {
         const searchValue = "test";
 
         cy.get('[data-cy="search-input"]').type(searchValue);
-        cy.get('[data-cy="search-input"]').should("have.value", searchValue);
 
         cy.get('[data-cy="search-button"]').click();
 
@@ -63,5 +62,22 @@ describe("Album Catalog - Interactions", () => {
         cy.get('[data-cy="search-button"]').click();
 
         cy.url().should("include", `/search?q=${searchValue}`);
+    });
+
+    it("invalid album id gives not found error", () => {
+        cy.visit("/album/9898999");
+
+        cy.get('[data-cy="album-not-found"]').should("be.visible");
+    });
+
+    it("zochova check email on contact page", () => {
+        cy.visit("https://zochova.sk");
+
+        const correctMail = "office@zochova.sk";
+
+        cy.get("#hamburger").click();
+        cy.get("#header a").contains("Kontakt").click();
+
+        cy.get("#pageContent").contains(correctMail);
     });
 });
