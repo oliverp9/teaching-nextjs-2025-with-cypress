@@ -46,7 +46,7 @@ describe("Album Catalog - Basic Checks", () => {
         cy.get('[data-cy="detail-button"]').should("be.visible");
     });
 
-    it("at least one album card displays the correct author name", () => {
+    it("at least one album card displays the author field", () => {
         cy.visit("/");
 
         cy.get('[data-cy="album-card"]')
